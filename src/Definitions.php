@@ -154,7 +154,7 @@ class Definitions implements \Countable, \IteratorAggregate, \JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string, list<array<string, mixed>>>
      */
     public function jsonSerialize(): array
     {
@@ -162,7 +162,7 @@ class Definitions implements \Countable, \IteratorAggregate, \JsonSerializable
         foreach ($this->definitions as $id => $infos) {
             $data[$id] = [];
             foreach ($infos as $info) {
-                $data[$id] = $info->jsonSerialize();
+                $data[$id][] = $info->jsonSerialize();
             }
         }
 
