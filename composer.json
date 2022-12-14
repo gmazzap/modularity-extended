@@ -1,0 +1,40 @@
+{
+    "name": "gmazzap/modularity-extended",
+    "type": "library",
+    "description": "Experiment to extend Inpsyde Modularity.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Giuseppe Mazzapica",
+            "email": "g.mazzapica@inpsyde.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0 < 8.3",
+        "ext-json": "*",
+        "inpsyde/modularity": "dev-feature/container-compiler-interface",
+        "psr/event-dispatcher": "~1.0"
+    },
+    "require-dev": {
+        "inpsyde/php-coding-standards": "^1",
+        "vimeo/psalm": "^5.2.0",
+        "inpsyde/wp-stubs": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gmazzap\\ModularityExtended\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/*": true,
+            "inpsyde/*": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "psalm": "@php ./vendor/vimeo/psalm/psalm --no-suggestions --find-unused-psalm-suppress --no-diff --no-cache --no-file-cache"
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "name": "inpsyde/modularity",
+    "type": "library",
+    "description": "Modular PSR-11 implementation for WordPress plugins, themes or libraries.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Inpsyde GmbH",
+            "email": "hello@inpsyde.com",
+            "homepage": "https://inpsyde.com/",
+            "role": "Company"
+        },
+        {
+            "name": "Christian Leucht",
+            "email": "c.leucht@inpsyde.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Pablo Kauffman",
+            "email": "p.kauffman@inpsyde.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Giuseppe Mazzapica",
+            "email": "g.mazzapica@inpsyde.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "psr/container": "~1.0"
+    },
+    "require-dev": {
+        "brain/monkey": "^2.6.1",
+        "inpsyde/php-coding-standards": "^1",
+        "mikey179/vfsstream": "^v1.6.10",
+        "phpunit/phpunit": "^8.5.21",
+        "vimeo/psalm": "^4.13.1",
+        "php-stubs/wordpress-stubs": ">=5.8@stable",
+        "johnpbloch/wordpress-core": ">=5.8"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Inpsyde\\Modularity\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inpsyde\\Modularity\\Tests\\": "tests/src/",
+            "Inpsyde\\Modularity\\Tests\\Unit\\": "tests/unit/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+        "psalm": "@php ./vendor/vimeo/psalm/psalm",
+        "qa": [
+            "@tests:no-cov",
+            "@cs",
+            "@psalm"
+        ],
+        "tests": "@php ./vendor/phpunit/phpunit/phpunit",
+        "tests:codecov": "@php ./vendor/phpunit/phpunit/phpunit --coverage-clover coverage.xml",
+        "tests:no-cov": "@php ./vendor/phpunit/phpunit/phpunit --no-coverage"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/package-versions-deprecated": true
+        }
+    }
+}
